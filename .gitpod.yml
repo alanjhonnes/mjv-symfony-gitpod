@@ -4,3 +4,12 @@ image:
 vscode:
   extensions:
     - bmewburn.vscode-intelephense-client
+
+# exposed ports
+ports:
+- port: 8000
+  onOpen: open-preview
+# start up tasks
+tasks:
+- init: composer install
+  command: symfony serve
