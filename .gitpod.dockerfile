@@ -1,11 +1,13 @@
 FROM gitpod/workspace-full:latest
 
-USER root
+#USER root
 # Install custom tools, runtime, etc.
+
+USER gitpod
 RUN wget https://get.symfony.com/cli/installer -O - | bash \
     && mv /home/gitpod/.symfony/bin/symfony /usr/local/bin/symfony
 
-USER gitpod
+ENV PATH="$HOME/.symfony/bin:$PATH"
 # Apply user-specific settings
 
 # Give back control
